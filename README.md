@@ -1,4 +1,3 @@
-hexo-theme-Typography
 ======
 
 ## 刘帅的博客
