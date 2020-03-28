@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="description" content="tetrahedron demo">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>tetrahedron demo</title>
+  <style>
+    section {
+      width: 500px;
+      height: 500px;
+      margin: 150px auto 0;
+      background-color: #0001;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateX(45deg) rotateY(30deg);
+      animation: rolling 5s infinite linear;
+    }
+
+    div {
+      width: 0;
+      height: 0;
+      border-bottom: 173.2px solid #0003;
+      /* 利用底边框实现近似等边三角形 */
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      position: absolute;
+      left: 0;
+      top: 150px;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      transition: 1s;
+      transform-origin: center top;
+      /* 所有三角形设置顶部顶点为transform基点 */
+    }
+
+    /* 四个三角形向下移动122.475px(即3/4四面体高度)
+      ** 2、3号分别旋转平面-120、-240度达到各自平面位置
+      ** 1、2、3号绕各自x轴旋转-70.5288度达到目标位置；
+      ** 4号沿自身Y轴向上移动2/3自身高度达到四面体底面中心位置，再向下
+      ** 即z轴负方向移动四面体高度的距离(-163.3px)达到底面位置 */
+    div:nth-child(1) {
+      transform: translateZ(122.475px) rotateX(-70.5288deg);
+      border-bottom-color: #18fc;
+    }
+
+    div:nth-child(2) {
+      transform: translateZ(122.475px) rotate(-120deg) rotateX(-70.5288deg);
+      border-bottom-color: #3e5c;
+    }
+
+    div:nth-child(3) {
+      transform: translateZ(122.475px) rotate(-240deg) rotateX(-70.5288deg);
+      border-bottom-color: #fa1c;
+    }
+
+    div:nth-child(4) {
+      transform: translateZ(122.475px) translateY(-66.66%) translateZ(-163.3px);
+      border-bottom-color: #f36c;
+    }
+
+
+    /* section 动画关键帧设置 */
+    @keyframes rolling {
+      from {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+
+      to {
+        transform: rotateX(360deg) rotateY(720deg);
+      }
+    }
+
+    /* 以下为hover时，div向各自z轴方向移动30px，方便观察 */
+    section:hover div:nth-child(1) {
+      transform: translateZ(122.475px) rotateX(-70.5288deg) translateZ(30px);
+    }
+
+    section:hover div:nth-child(2) {
+      transform: translateZ(122.475px) rotate(-120deg) rotateX(-70.5288deg) translateZ(30px);
+    }
+
+    section:hover div:nth-child(3) {
+      transform: translateZ(122.475px) rotate(-240deg) rotateX(-70.5288deg) translateZ(30px);
+    }
+
+    section:hover div:nth-child(4) {
+      transform: translateZ(122.475px) translateY(-66.66%) translateZ(-163.3px) translateZ(-30px);
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+</body>
+
+</html>

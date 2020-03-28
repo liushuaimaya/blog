@@ -1,0 +1,43 @@
+a {
+  cursor: pointer;
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+ul {
+  list-style: none;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", Helvetica,
+    Tahoma, Arial, "Microsoft YaHei", 微软雅黑, 黑体, Heiti, sans-serif, SimSun,
+    宋体, serif;
+  /* font-family: "Myriad Set Pro", "Lucida Grande", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif"; */
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACFJREFUeNpiZGBg4GegAsBlCD8TqSYNQg2Mo6FEBAAIMACdPABtrSW/IQAAAABJRU5ErkJggg==");
+  body {
+    width: 800px;
+    margin: 0 auto;
+    #lang-switch {
+      float: right;
+    }
+    nav {
+      ul {
+        list-style: none;
+        li {
+          font-size: 1.5em;
+          margin-right: 20px;
+        }
+      }
+    }
+    footer {
+      margin-left: 80px;
+      font-size: 14px;
+      color: gray;
+    }
+  }
+}

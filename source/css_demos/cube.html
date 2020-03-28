@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="description" content="cube demo">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>cube demo</title>
+  <style>
+    section {
+      margin: 50px auto;
+      color: white;
+      width: 500px;
+      height: 500px;
+      transform-style: preserve-3d;
+      position: relative;
+      transform: rotateX(-20deg) rotateY(15deg);
+      transition: 1s;
+      animation: rolling 5s infinite linear;
+    }
+
+    section:hover {
+      animation: rolling 1.5s infinite linear;
+    }
+
+    @keyframes rolling {
+      from {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+
+      to {
+        transform: rotateX(360deg) rotateY(720deg);
+      }
+    }
+
+
+
+    div {
+      text-align: center;
+      font-size: 3em;
+      line-height: 200px;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: #0002;
+      box-shadow: 0px 0px 3px 50px #0001;
+      transition: 1s;
+    }
+
+
+    /* 各面生成 */
+    div:nth-of-type(1) {
+      transform: translateZ(100px);
+      background-color: #18fc;
+    }
+
+    div:nth-of-type(2) {
+      transform: translateZ(-100px) rotateX(180deg);
+      background-color: #3e5c;
+    }
+
+    div:nth-of-type(3) {
+      transform: rotateY(-90deg) translateZ(100px);
+      background-color: #fa1c;
+    }
+
+    div:nth-of-type(4) {
+      transform: rotateY(90deg) translateZ(100px);
+      background-color: #f36c;
+    }
+
+    div:nth-of-type(5) {
+      transform: rotateX(90deg) translateZ(100px);
+      background-color: #c6fc;
+    }
+
+    div:nth-of-type(6) {
+      transform: rotateX(90deg) translateZ(-100px) rotateX(180deg);
+      background-color: #fdc;
+    }
+
+
+    /* hover 正方体，各面延z向移动50px，方便查看效果 */
+    section:hover div:nth-of-type(1) {
+      transform: translateZ(100px) translateZ(50px);
+    }
+
+    section:hover div:nth-of-type(2) {
+      transform: translateZ(-100px) rotateX(180deg) translateZ(50px);
+    }
+
+    section:hover div:nth-of-type(3) {
+      transform: rotateY(-90deg) translateZ(100px) translateZ(50px);
+    }
+
+    section:hover div:nth-of-type(4) {
+      transform: rotateY(90deg) translateZ(100px) translateZ(50px);
+    }
+
+    section:hover div:nth-of-type(5) {
+      transform: rotateX(90deg) translateZ(100px) translateZ(50px);
+    }
+
+    section:hover div:nth-of-type(6) {
+      transform: rotateX(90deg) translateZ(-100px) rotateX(180deg) translateZ(50px);
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div>front</div>
+    <div>back</div>
+    <div>left</div>
+    <div>right</div>
+    <div>top</div>
+    <div>bottom</div>
+  </section>
+</body>
+
+</html>
